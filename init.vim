@@ -76,7 +76,10 @@ nmap <Leader>jj <Plug>(easymotion-overwin-f2)
 nmap <Leader>jJ <Plug>(easymotion-sn)
 omap <Leader>jJ <Plug>(easymotion-tn)
 nmap <Leader>jl <Plug>(easymotion-overwin-line)
+
+" Jump within current line
 nmap <Leader>jm <Plug>(easymotion-sl)
+nmap <Leader>jw <Plug>(easymotion-wl) 
 
 " Vimtex key bindings
 nmap <Leader>cc <Plug>(vimtex-compile)
