@@ -24,8 +24,8 @@ Plug 'junegunn/seoul256.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tibabit/vim-templates'
 
-Plug 'unblevable/quick-scope'
 Plug 'machakann/vim-highlightedyank'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 call plug#end()
 
 " Color Scheme Settings
@@ -95,6 +95,8 @@ nmap <S-Enter> o<Esc>
 " Bind moving lines down one place.
 imap <c-CR> ddp
 
+" Open vimrc
+nnoremap <Leader>ev :vsp ~/.config/nvim/init.vim <CR> 
 
 
 
