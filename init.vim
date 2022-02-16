@@ -22,6 +22,8 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/seoul256.vim'
 
 Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/vim-easyoperator-line'
+
 Plug 'tibabit/vim-templates'
 
 Plug 'machakann/vim-highlightedyank'
@@ -75,14 +77,15 @@ nnoremap q b
 nnoremap r $
 
 "Swap Easymotion Jump bindings"
-map <Space>jj <Plug>(easymotion-overwin-f2)
-map <Space>jJ <Plug>(easymotion-sn)
-map <Space>jl <Plug>(easymotion-overwin-line)
-
-nmap <Leader>jj <Plug>(easymotion-overwin-f2)
-nmap <Leader>jJ <Plug>(easymotion-sn)
+map <Leader>jj <Plug>(easymotion-overwin-f2)
+map <Leader>jJ <Plug>(easymotion-sn)
 omap <Leader>jJ <Plug>(easymotion-tn)
-nmap <Leader>jl <Plug>(easymotion-overwin-line)
+map <Leader>jl <Plug>(easymotion-overwin-line)
+
+" Easymotion select, yank block options
+nmap <Leader>ys  <Plug>(easyoperator-line-yank)
+nmap <Leader>s   <Plug>(easyoperator-line-select)
+
 
 " buffer related bindings
 :set splitright
@@ -98,8 +101,9 @@ nmap <Leader>wv :vsp <CR>
 nmap <Leader>wh :sp <CR>
 
 " Jump within current line
-nmap <Leader>jm <Plug>(easymotion-sl)
-nmap <Leader>jw <Plug>(easymotion-wl) 
+map <Leader>jm <Plug>(easymotion-sl)
+map <Leader>jw <Plug>(easymotion-wl) 
+map <Leader>jl <Plug>(easymotion-overwin-line)
 
 " Vimtex key bindings
 nmap <Leader>cc <Plug>(vimtex-compile)
