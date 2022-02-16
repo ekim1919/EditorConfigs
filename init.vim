@@ -25,7 +25,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tibabit/vim-templates'
 
 Plug 'machakann/vim-highlightedyank'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+Plug 'tpope/vim-vinegar'
+
 call plug#end()
 
 " Color Scheme Settings
@@ -71,11 +74,28 @@ let g:tmpl_search_paths = ['~/.config/nvim/templates']
 nnoremap q b
 nnoremap r $
 
-"Swap Easymotion Jump bindings
+"Swap Easymotion Jump bindings"
+map <Space>jj <Plug>(easymotion-overwin-f2)
+map <Space>jJ <Plug>(easymotion-sn)
+map <Space>jl <Plug>(easymotion-overwin-line)
+
 nmap <Leader>jj <Plug>(easymotion-overwin-f2)
 nmap <Leader>jJ <Plug>(easymotion-sn)
 omap <Leader>jJ <Plug>(easymotion-tn)
 nmap <Leader>jl <Plug>(easymotion-overwin-line)
+
+" buffer related bindings
+:set splitright
+:set splitbelow
+nmap <Leader>bd :bd <CR>
+nmap <Leader>bnv :vnew <CR>
+nmap <Leader>bnh :new <CR>
+
+
+" window related bindings 
+nmap <Leader>wd :close <CR>
+nmap <Leader>wv :vsp <CR>
+nmap <Leader>wh :sp <CR>
 
 " Jump within current line
 nmap <Leader>jm <Plug>(easymotion-sl)
@@ -84,6 +104,14 @@ nmap <Leader>jw <Plug>(easymotion-wl)
 " Vimtex key bindings
 nmap <Leader>cc <Plug>(vimtex-compile)
 nmap <Leader>cv <Plug>(vimtex-view)
+
+" Insert mode bindings
+inoremap <C-r><C-r> <C-r>"
+
+" Vim vinegar vert/horizaontal bindings
+nmap <Leader>-v <Plug>VinegarVerticalSplitUp
+nmap <Leader>-h <Plug>VinegarSplitUp
+
 
 " Rebind line delete ke
 nmap <c-d> dd
@@ -97,6 +125,8 @@ imap <c-CR> ddp
 
 " Open vimrc
 nnoremap <Leader>ev :vsp ~/.config/nvim/init.vim <CR> 
+" Open tex snipets file
+nnoremap <Leader>et :vsp ~/.config/nvim/snippts/tex.snippets <CR> 
 
 
 
