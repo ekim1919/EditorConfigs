@@ -23,6 +23,7 @@ Plug 'junegunn/seoul256.vim'
 
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/vim-easyoperator-line'
+Plug 'haya14busa/vim-easyoperator-phrase'
 
 Plug 'tibabit/vim-templates'
 
@@ -47,6 +48,8 @@ filetype plugin indent on
 syntax enable
 set number
 set mouse=a
+set switchbuf=useopen
+set nocompatible
 
 " Space as leader key.
 nnoremap <SPACE> <Nop>
@@ -76,15 +79,20 @@ let g:tmpl_search_paths = ['~/.config/nvim/templates']
 nnoremap q b
 nnoremap r $
 
-"Swap Easymotion Jump bindings"
+" Swap Easymotion Jump bindings
 map <Leader>jj <Plug>(easymotion-overwin-f2)
 map <Leader>jJ <Plug>(easymotion-sn)
 omap <Leader>jJ <Plug>(easymotion-tn)
 map <Leader>jl <Plug>(easymotion-overwin-line)
 
-" Easymotion select, yank block options
-nmap <Leader>ys  <Plug>(easyoperator-line-yank)
-nmap <Leader>s   <Plug>(easyoperator-line-select)
+" Easymotion select, yank, delete bindings
+nmap <Leader>dl <Plug>(easyoperator-line-delete)
+nmap <Leader>yl  <Plug>(easyoperator-line-yank)
+nmap <Leader>sl   <Plug>(easyoperator-line-select)
+
+nmap <Leader>sj <Plug>(easyoperator-phrase-select)
+nmap <Leader>dj <Plug>(easyoperator-phrase-delete)
+nmap <Leader>yj <Plug>(easyoperator-phrase-yank)
 
 
 " buffer related bindings
@@ -93,7 +101,7 @@ nmap <Leader>s   <Plug>(easyoperator-line-select)
 nmap <Leader>bd :bd <CR>
 nmap <Leader>bnv :vnew <CR>
 nmap <Leader>bnh :new <CR>
-
+nmap <Leader>bs :ls<cr>:b<space>
 
 " window related bindings 
 nmap <Leader>wd :close <CR>
