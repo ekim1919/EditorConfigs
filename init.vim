@@ -5,14 +5,6 @@ Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
 
 Plug 'tibabit/vim-templates'
 Plug 'sheerun/vim-polyglot'
@@ -28,11 +20,36 @@ Plug 'haya14busa/vim-easyoperator-phrase'
 Plug 'tibabit/vim-templates'
 
 Plug 'machakann/vim-highlightedyank'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-
 Plug 'tpope/vim-vinegar'
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+Plug 'tpope/vim-fugitive'
+Plug 'takac/vim-hardtime'
+Plug 'luochen1990/rainbow'
+Plug 'mhinz/vim-startify'
+
 call plug#end()
+
+" Rainbow para. on.
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+" deoplete settings
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
+" Use vimtex deoplete source.
+call deoplete#custom#var('omni', 'input_patterns', {
+      \ 'tex': g:vimtex#re#deoplete
+      \})
+
+" Hardtime mode on.
+let g:hardtime_default_on = 1
 
 " Color Scheme Settings
 let g:seoul256_background = 234
@@ -69,10 +86,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snippets"]
 
-" This is new style
-call deoplete#custom#var('omni', 'input_patterns', {
-          \ 'tex': g:vimtex#re#deoplete
-          \})
 " Set Vim templates search path.
 let g:tmpl_search_paths = ['~/.config/nvim/templates']
 
@@ -139,6 +152,7 @@ imap <c-CR> ddp
 nnoremap <Leader>ev :vsp ~/.config/nvim/init.vim <CR> 
 " Open tex snipets file
 nnoremap <Leader>et :vsp ~/.config/nvim/snippts/tex.snippets <CR> 
+
 
 
 
